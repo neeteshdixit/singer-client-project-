@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library - SingerStream</title>
+  <link rel="stylesheet" href="css/library.css">
+</head>
+<body>
+
+<header>
+  <div class="header-title">SingerStream Library</div>
+  <div class="header-actions">
+    <span id="userGreeting"></span>
+    <a id="adminLink" class="header-link" href="admin-dashboard.html">Admin Dashboard</a>
+    <a class="header-link" href="profile.html">Profile</a>
+    <button id="logoutBtn" class="header-btn">Logout</button>
+  </div>
+</header>
+
+<div class="filters">
+  <input type="text" id="searchInput" placeholder="Search songs, podcasts, videos">
+  <select id="typeFilter">
+    <option value="">All Types</option>
+    <option value="song">Songs</option>
+    <option value="podcast">Podcasts</option>
+    <option value="video">Videos</option>
+  </select>
+  <select id="sortFilter">
+    <option value="upload_date">Newest</option>
+    <option value="views_count">Most Played</option>
+    <option value="title">Title</option>
+  </select>
+</div>
+
+<div class="container" id="contentList"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/library.js"></script>
+<script src="js/search.js"></script>
+
+</body>
+</html>

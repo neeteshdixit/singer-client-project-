@@ -1,0 +1,52 @@
+singerstream/
+├── README.md
+├── .gitignore
+├── package.json
+├── .env.example
+│
+├── database/
+│   └── schema.sql              # PostgreSQL database schema
+│
+├── backend/                     # Node.js Express API
+│   ├── server.js
+│   ├── package.json
+│   ├── config/
+│   │   └── database.js
+│   ├── middleware/
+│   │   ├── auth.js
+│   │   └── upload.js
+│   ├── routes/
+│   │   ├── auth.js             # Login, register, verify
+│   │   ├── content.js          # Upload, get, update, delete content
+│   │   ├── user.js             # User profile, favorites
+│   │   └── analytics.js        # View stats, popular content
+│   └── utils/
+│       ├── security.js
+│       └── validation.js
+│
+└── frontend/                    # HTML/CSS/JS Client
+    ├── index.html              # Landing/homepage
+    ├── login.html
+    ├── register.html
+    ├── library.html            # Content browser
+    ├── player.html             # Streaming page
+    ├── admin-dashboard.html
+    ├── profile.html
+    │
+    ├── css/
+    │   ├── main.css            # Global styles
+    │   ├── components.css      # Reusable components
+    │   └── admin.css           # Admin-specific styles
+    │
+    ├── js/
+    │   ├── config.js           # API URL, constants
+    │   ├── app.js              # Main app initialization
+    │   ├── auth.js             # Login/register/logout logic
+    │   ├── player.js           # HTML5 player controls
+    │   ├── upload.js           # Admin upload interface
+    │   ├── search.js           # Search functionality
+    │   └── api.js              # API client wrapper
+    │
+    └── assets/
+        ├── images/
+        └── icons/

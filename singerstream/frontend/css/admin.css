@@ -1,0 +1,148 @@
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+    }
+
+    header.admin-header {
+      background: #1e3c72;
+      color: white;
+      padding: 15px 20px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .admin-user {
+      font-size: 14px;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .admin-logout {
+      padding: 6px 10px;
+      background: #ff512f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .admin-logout:hover {
+      background: #dd2476;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .upload-box, .list-box {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 15px;
+      background: #1e3c72;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2a5298;
+    }
+
+    .item {
+      border-bottom: 1px solid #ddd;
+      padding: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .delete {
+      background: crimson;
+    }
+
+    .delete:hover {
+      background: darkred;
+    }
+
+    .upload-zone {
+      margin: 10px 0;
+      padding: 20px;
+      border: 2px dashed #1e3c72;
+      border-radius: 8px;
+      text-align: center;
+      color: #1e3c72;
+      cursor: pointer;
+      background: #f8fbff;
+    }
+
+    .upload-zone.drag-over {
+      background: #e9f1ff;
+    }
+
+    #uploadProgress {
+      background: #e5e5e5;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .user-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1.6fr 0.7fr 0.6fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .user-row.header {
+      font-weight: bold;
+    }
+
+    .role-select {
+      width: 100%;
+      padding: 6px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .save-role {
+      padding: 8px 12px;
+    }
+ 

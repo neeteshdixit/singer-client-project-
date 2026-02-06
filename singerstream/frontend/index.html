@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SingerStream | Artist Portfolio</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="brand">
+    <span class="brand-mark">SS</span>
+    <span class="brand-name">SingerStream</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#releases">Releases</a>
+    <a href="#contact">Get in Touch</a>
+  </div>
+  <div class="nav-actions">
+    <a class="btn ghost" href="login.html">Login</a>
+    <a class="btn primary" href="register.html">Sign Up</a>
+  </div>
+</nav>
+
+<header class="hero reveal">
+  <div class="hero-content">
+    <p class="eyebrow">New Era. Live Sound.</p>
+    <h1>Elevated vocals and modern fusion for the global stage.</h1>
+    <p class="hero-subtitle">
+      A curated portfolio of originals, covers, and live sessions. Discover fresh releases,
+      cinematic vocal textures, and exclusive behind-the-scenes moments.
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" href="login.html">Listen Now</a>
+      <a class="btn outline" href="#contact">Book a Session</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <h3>120K+</h3>
+        <span>Streams</span>
+      </div>
+      <div>
+        <h3>40+</h3>
+        <span>Releases</span>
+      </div>
+      <div>
+        <h3>12</h3>
+        <span>Live Shows</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="visual-card">
+      <img src="assets/icons/image.png" alt="Stage performance" />
+      <div class="visual-caption">
+        <span>Live at Blue Note</span>
+        <span>2026</span>
+      </div>
+    </div>
+    <div class="visual-accent"></div>
+  </div>
+</header>
+
+<section id="about" class="section about reveal">
+  <div class="section-title">
+    <p class="eyebrow">Artist Story</p>
+    <h2>Signature voice, modern sound.</h2>
+  </div>
+  <div class="about-grid">
+    <p>
+      SingerStream blends classical training with contemporary production. The result is a soundscape
+      that feels intimate yet expansive — from stripped acoustic takes to cinematic, layered vocals.
+    </p>
+    <p>
+      This platform is a direct line to the music: early access tracks, exclusive live sessions,
+      and a private space for fans who want to go deeper than the charts.
+    </p>
+  </div>
+</section>
+
+<section id="releases" class="section releases reveal">
+  <div class="section-title">
+    <p class="eyebrow">Featured</p>
+    <h2>Latest Releases</h2>
+  </div>
+  <div class="release-grid">
+    <div class="release-card">
+      <h3>Resonance (Live)</h3>
+      <p>Raw vocals. No filters. A room full of energy.</p>
+      <span class="tag">Live</span>
+    </div>
+    <div class="release-card">
+      <h3>Midnight Echoes</h3>
+      <p>Ambient synth layers and a soaring hook.</p>
+      <span class="tag">Single</span>
+    </div>
+    <div class="release-card">
+      <h3>Acoustic Diaries</h3>
+      <p>Intimate takes recorded in one breath.</p>
+      <span class="tag">EP</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact reveal">
+  <div class="section-title">
+    <p class="eyebrow">Get in Touch</p>
+    <h2>Let’s create something unforgettable.</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-images">
+      <img class="image-main" src="assets/images/Anshika.jpeg" alt="Artist portrait"/>
+      <img class="image-overlay" src="assets/images/image.png" alt="Live performance" />
+    </div>
+    <div class="contact-card">
+      <form id="contactForm">
+        <div class="form-row">
+          <input type="text" id="contactName" placeholder="Your name" required>
+          <input type="email" id="contactEmail" placeholder="Your email" required>
+        </div>
+        <input type="text" id="contactSubject" placeholder="Subject" required>
+        <textarea id="contactMessage" rows="5" placeholder="Write your message..." required></textarea>
+        <button class="btn primary" type="submit" id="contactSubmit">Send Message</button>
+        <p id="contactStatus" class="contact-status"></p>
+      </form>
+      <div class="contact-details">
+        <p><strong>Email:</strong> dixitneetesh857@gmail.com</p>
+        <p><strong>Management:</strong> +91 98765 43210</p>
+        <p><strong>Location:</strong> New Delhi, India</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 SingerStream. All rights reserved.</p>
+</footer>
+
+<script>
+  const revealItems = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  revealItems.forEach(item => revealObserver.observe(item));
+
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('contactStatus');
+  const submitBtn = document.getElementById('contactSubmit');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = '';
+
+    const payload = {
+      name: document.getElementById('contactName').value.trim(),
+      email: document.getElementById('contactEmail').value.trim(),
+      subject: document.getElementById('contactSubject').value.trim(),
+      message: document.getElementById('contactMessage').value.trim()
+    };
+
+    if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+      statusEl.textContent = 'Please fill out all fields.';
+      statusEl.className = 'contact-status error';
+      return;
+    }
+
+    try {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.msg || 'Failed to send');
+      }
+
+      statusEl.textContent = 'Message sent successfully!';
+      statusEl.className = 'contact-status success';
+      form.reset();
+    } catch (err) {
+      statusEl.textContent = err.message || 'Failed to send message.';
+      statusEl.className = 'contact-status error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
+
+</body>
+</html>

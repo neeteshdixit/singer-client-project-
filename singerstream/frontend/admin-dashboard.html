@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - SingerStream</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<header class="admin-header">
+  <div class="admin-title">SingerStream Admin Dashboard</div>
+  <div class="admin-user">
+    <span id="adminUserLabel">Checking user...</span>
+    <button id="adminLogoutBtn" class="admin-logout">Logout</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="upload-box">
+    <h3>Upload New Content</h3>
+
+    <form id="uploadForm">
+      <input type="text" id="contentTitle" placeholder="Title" required>
+
+      <select id="contentType">
+        <option value="song">Song</option>
+        <option value="podcast">Podcast</option>
+        <option value="video">Video</option>
+      </select>
+
+      <textarea id="contentDescription" placeholder="Description"></textarea>
+
+      <div id="uploadZone" class="upload-zone">
+        <p>Click or drag a file here to upload</p>
+        <input type="file" id="fileInput" hidden>
+      </div>
+
+      <div id="filePreview" style="display:none;">
+        <p><strong>File:</strong> <span id="fileName"></span></p>
+        <p><strong>Size:</strong> <span id="fileSize"></span></p>
+      </div>
+
+      <div id="uploadProgress" style="display:none;">
+        <div id="uploadProgressFill" style="height: 8px; background: #1e3c72; width: 0;"></div>
+      </div>
+
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+
+  <div class="list-box">
+    <h3>Uploaded Content</h3>
+    <div id="contentList">Loading...</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="list-box">
+    <h3>User Role Management</h3>
+    <div id="userList">Loading users...</div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/upload.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>
